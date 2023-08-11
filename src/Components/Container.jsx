@@ -47,7 +47,7 @@ const Container = () => {
         <div className=" grid gap-3 ">
 
      
-          <div className=" row d-flex gap-3 justify-content-md-center align-items-center ">
+          <div className=" row d-flex gap-3  justify-content-center align-items-center ">
             { 
            
                 tareas.map( (tarea) => 

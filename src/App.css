@@ -12,9 +12,31 @@
   text-align: center;
 } */
 
-.form{
-  margin: 20px auto;
-  width: 50%;
+
+
+@media screen and (min-width:300px) {
+  .form{
+    width: 100%;
+  }
+  
+}
+@media screen and (min-width:725px) {
+  .form{
+    width: 70%;
+  }
+  
+}
+@media screen and (min-width:1025px) {
+  .form{
+    width: 60%;
+  }
+  
+}
+@media screen and (min-width:1225px) {
+  .form{
+    width: 50%;
+  }
+  
 }
 
 .form-control{
@@ -61,6 +83,9 @@ button{
   position: relative;
   z-index: 0;
 }
+
+
+
 
 .text{
   text-align: left;

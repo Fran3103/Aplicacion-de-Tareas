@@ -8,7 +8,7 @@ const Tarea = ({descripcion, texto, id , eliminar, completa, tareaCompleta}) => 
        <>
        
       
-              <div className='card shadow-lg '>
+              <div className='card card2 shadow-lg '>
                 <div className={completa ? 'row   d-flex  completa ' : ' row   d-flex '} onClick={()=> tareaCompleta(id)}>
                   
                   <div className='card-body text-left'>
