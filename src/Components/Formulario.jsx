@@ -6,7 +6,8 @@ const Form = (props) => {
 
 const [texto, setTexto] = useState('')
 const[descripcion, setDescripcion] = useState('')
-  
+
+
 const cambio = e => {
   setTexto(e.target.value)
 }
@@ -28,6 +29,7 @@ const envio = (e) => {
     }
 
     props.onSubmit(tareaNueva)
+    // props.guardar(tareaNueva)
   }
 
 
