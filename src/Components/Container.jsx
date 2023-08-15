@@ -17,7 +17,7 @@ const Container = () => {
    }
   )
 
-  const [editar, setEditar] = useState(null)
+ 
 
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Container = () => {
       
       const actualizarTareas = [tarea, ...tareas]
       setTareas(actualizarTareas)
-      setEditar(null)
+
       
     }
   }
@@ -79,7 +79,7 @@ const Container = () => {
                   eliminar={eliminar}
                  
              
-                  setEditar={setEditar}
+          
                  
                   tarea={tarea}
                   />
