@@ -111,3 +111,9 @@ button{
   text-decoration:line-through;
   border-radius: 5px;
 }
+
+.edit{
+  left: 13px;
+  top: 2px;
+  font-size: 1.2rem;
+}

@@ -1,11 +1,27 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+
 
 const Form = (props) => {
 
 const [texto, setTexto] = useState('')
 const[descripcion, setDescripcion] = useState('')
+
+
+useEffect(() => {
+ if(props.editar!== null){
+
+   setTexto(props.editar.texto)
+   setDescripcion(props.editar.descripcion)
+ }
+   else{
+   
+    setTexto('')
+    setDescripcion('')
+  }
+ 
+}, [ props.editar])
 
 
 const cambio = e => {
@@ -19,16 +35,24 @@ const descrip = e => {
 const envio = (e) => {
     e.preventDefault()
 
+    if(props.editar !== null){
+      props.editarTarea(props.editar)
+      
+      
+  
+    }else{
 
-    const tareaNueva = {
-
-      id : uuidv4(),
-      texto: texto,
-      completa: false,
-      descripcion: descripcion
+      
+      const tareaNueva = {
+        
+        id: uuidv4(),
+        texto: texto,
+        completa: false,
+        descripcion: descripcion
+      }
+      
+      props.onSubmit(tareaNueva)
     }
-
-    props.onSubmit(tareaNueva)
     // props.guardar(tareaNueva)
   }
 
@@ -48,11 +72,12 @@ const envio = (e) => {
               className="form-control" 
               id="exampleFormControlInput1" 
               placeholder="Titulo de la Tarea "
+              value={texto}
               onChange={cambio}/>
                 </div>
           <div className="mb-3">
             
-            <textarea className="form-control "  id="exampleFormControlTextarea1" rows="3" placeholder='Descripcion de la Tarea'
+            <textarea className="form-control "  id="exampleFormControlTextarea1" rows="3" placeholder='Descripcion de la Tarea' value={descripcion}
             type="text"
             onChange={descrip}
             >

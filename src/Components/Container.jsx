@@ -17,17 +17,29 @@ const Container = () => {
    }
   )
 
+  const [editar, setEditar] = useState(null)
+
+
   useEffect(() => {
    window.localStorage.setItem("tareaGuardada", JSON.stringify(tareas))
   }, [tareas])
 
 
 
+  const editarTarea = editar => {
+    console.log(editar)
+    const tareaEditada = tareas.map((tarea) => (tarea === editar.id ? editar : tarea))
+    setTareas(tareaEditada)
+    setEditar(null)
+    console.log(tareaEditada)
+  }
+
   const agregarTarea = tarea=> {
-    if(tarea.texto.trim()){
-      tarea.texto = tarea.texto.trim()
+    if(tarea.texto && tarea.descripcion){
+      
       const actualizarTareas = [tarea, ...tareas]
       setTareas(actualizarTareas)
+      setEditar(null)
       
     }
   }
@@ -51,7 +63,7 @@ const Container = () => {
 
   return (
     <div className='container  bg-primary-emphasis bg-gradient p-5 rounded-1'>
-          <Form onSubmit =  {agregarTarea }  />
+          <Form onSubmit =  {agregarTarea } editar={editar} setEditar={setEditar} editarTarea={editarTarea} />
         <div className=" grid gap-3 ">
 
      
@@ -61,13 +73,15 @@ const Container = () => {
                 tareas.map( (tarea) => 
                   <Tarea
                   key={tarea.id}
-                  texto={tarea.texto}
+                
                   completa={tarea.completa}
                   tareaCompleta={tareaCompleta}
                   eliminar={eliminar}
-                  id={tarea.id}
-                  descripcion={tarea.descripcion}
-                  
+                 
+             
+                  setEditar={setEditar}
+                  editarTarea={editarTarea}
+                  tarea={tarea}
                   />
                 
                 )
