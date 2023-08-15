@@ -22,7 +22,8 @@ const Tarea = ({ eliminar, completa, tareaCompleta, setEditar, tarea}) => {
                   </div> 
                   
                 </div>
-                <div className="icono"  onClick={()=>eliminar(tarea.id)}>
+                <div className="icono"  onClick={()=>eliminar(tarea.id)}> 
+                
                       <AiFillCloseCircle />
                 </div>
               </div>

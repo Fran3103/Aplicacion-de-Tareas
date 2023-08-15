@@ -28,10 +28,13 @@ const Container = () => {
 
   const editarTarea = editar => {
     console.log(editar)
-    const tareaEditada = tareas.map((tarea) => (tarea === editar.id ? editar : tarea))
-    setTareas(tareaEditada)
+    // const tareaEditada = tareas.map((tarea) => (tarea.id === editar.id ? tarea : editar))
+    const tareaEditada2 = tareas.map (tarea=>{ if (tarea.id === editar[0]){ editar=tarea }
+      return tarea
+    })
+    setTareas(tareaEditada2)
     setEditar(null)
-    console.log(tareaEditada)
+    console.log(tareaEditada2)
   }
 
   const agregarTarea = tarea=> {
