@@ -9,19 +9,6 @@ const [texto, setTexto] = useState('')
 const[descripcion, setDescripcion] = useState('')
 
 
-useEffect(() => {
- if(props.editar!== null){
-
-   setTexto(props.editar.texto)
-   setDescripcion(props.editar.descripcion)
- }
-   else{
-   
-    setTexto('')
-    setDescripcion('')
-  }
- 
-}, [ props.editar])
 
 
 const cambio = e => {
@@ -35,14 +22,7 @@ const descrip = e => {
 const envio = (e) => {
     e.preventDefault()
 
-    if(props.editar !== null){
-      props.editarTarea(props.editar)
-      
-      
   
-    }else{
-
-      
       const tareaNueva = {
         
         id: uuidv4(),
@@ -52,7 +32,7 @@ const envio = (e) => {
       }
       
       props.onSubmit(tareaNueva)
-    }
+    
     // props.guardar(tareaNueva)
   }
 

@@ -26,13 +26,13 @@ const Container = () => {
 
 
 
-  const editarTarea = editar => {
-    console.log(editar)
-    const tareaEditada = tareas.map((tarea) => (tarea === editar.id ? editar : tarea))
-    setTareas(tareaEditada)
-    setEditar(null)
-    console.log(tareaEditada)
-  }
+  // const editarTarea = editar => {
+  //   console.log(editar)
+  //   const tareaEditada = tareas.map((tarea) => (tarea === editar.id ? editar : tarea))
+  //   setTareas(tareaEditada)
+  //   setEditar(null)
+  //   console.log(tareaEditada)
+  // }
 
   const agregarTarea = tarea=> {
     if(tarea.texto && tarea.descripcion){
@@ -63,7 +63,7 @@ const Container = () => {
 
   return (
     <div className='container  bg-primary-emphasis bg-gradient p-5 rounded-1'>
-          <Form onSubmit =  {agregarTarea } editar={editar} setEditar={setEditar} editarTarea={editarTarea} />
+          <Form onSubmit =  {agregarTarea } />
         <div className=" grid gap-3 ">
 
      
@@ -80,7 +80,7 @@ const Container = () => {
                  
              
                   setEditar={setEditar}
-                  editarTarea={editarTarea}
+                 
                   tarea={tarea}
                   />
                 

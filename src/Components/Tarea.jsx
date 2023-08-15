@@ -1,18 +1,16 @@
 import React from 'react'
 import {AiFillCloseCircle } from "react-icons/ai";
-import {FaRegEdit } from "react-icons/fa"
 
 
-const Tarea = ({ eliminar, completa, tareaCompleta, setEditar, tarea}) => {
+
+const Tarea = ({ eliminar, completa, tareaCompleta, tarea}) => {
   return (
     
        <>
        
       
               <div className='card card2 shadow-lg '>
-                <div className="icono edit" onClick={()=> setEditar(tarea)}>
-                <FaRegEdit/>
-                </div>
+               
                 <div className={completa ? 'row   d-flex  completa ' : ' row   d-flex '} onClick={()=> tareaCompleta(tarea.id)}>
                   
                   <div className='card-body text-left'>
